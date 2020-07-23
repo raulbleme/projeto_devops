@@ -20,9 +20,20 @@ public class ItmnUsuarioController {
 	@Autowired
 	private ItmnUsuarioDAO dao;
 	
-	@PostMapping("/index")
+	@PostMapping("/loginracf")
 	public ResponseEntity<ItmnUsuario> efetuarLoginRacf(@RequestBody ItmnUsuario usuario){
 		ItmnUsuario objeto = dao.findByRacfAndSenha(usuario.getRacf(), usuario.getSenha());
+		if(objeto == null) {
+			return ResponseEntity.status(403).build();
+		}
+		else {
+			return ResponseEntity.ok(objeto);
+		}
+	}
+	
+	@PostMapping("/loginemail")
+	public ResponseEntity<ItmnUsuario> efetuarLoginEmail(@RequestBody ItmnUsuario usuario){
+		ItmnUsuario objeto = dao.findByRacfAndSenha(usuario.getEmail(), usuario.getSenha());
 		if(objeto == null) {
 			return ResponseEntity.status(403).build();
 		}
