@@ -19,7 +19,7 @@ public class ItmnEquipamentoController {
 	private ItmnEquipamentoDAO dao;
 	
 	@GetMapping("/equipamentos")
-	public ResponseEntity<ArrayList<ItmnEquipamento>> exibirTodasMusicas(){
+	public ResponseEntity<ArrayList<ItmnEquipamento>> exibirTodosEquipamentos(){
 		ArrayList<ItmnEquipamento> lista = (ArrayList<ItmnEquipamento>) dao.findAll();
 		if(lista.size() == 0) {
 			return ResponseEntity.status(500).build();

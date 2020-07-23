@@ -19,7 +19,7 @@ public class ItmnAlarmeController {
 	private ItmnAlarmeDAO dao;
 	
 	@GetMapping("/alarmes")
-	public ResponseEntity<ArrayList<ItmnAlarme>> exibirTodosArtistas(){
+	public ResponseEntity<ArrayList<ItmnAlarme>> exibirTodosAlarmes(){
 		ArrayList<ItmnAlarme> lista =  (ArrayList<ItmnAlarme>) dao.findAll();		
 		if (lista.size() == 0) {
 			return ResponseEntity.notFound().build();

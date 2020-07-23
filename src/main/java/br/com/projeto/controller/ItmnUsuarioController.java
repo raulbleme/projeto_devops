@@ -33,7 +33,7 @@ public class ItmnUsuarioController {
 	
 	@PostMapping("/loginemail")
 	public ResponseEntity<ItmnUsuario> efetuarLoginEmail(@RequestBody ItmnUsuario usuario){
-		ItmnUsuario objeto = dao.findByRacfAndSenha(usuario.getEmail(), usuario.getSenha());
+		ItmnUsuario objeto = dao.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
 		if(objeto == null) {
 			return ResponseEntity.status(403).build();
 		}

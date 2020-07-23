@@ -29,11 +29,11 @@ public class ItmnEvento {
 	@Column(name="data_evt")
 	private Date data;
 	
-	@JsonIgnoreProperties("itmnevento")
+	@JsonIgnoreProperties("evento")
 	@ManyToOne
 	private ItmnEquipamento idEquipamento;
 	
-	@JsonIgnoreProperties("itmnevento")
+	@JsonIgnoreProperties("evento")
 	@ManyToOne
 	private ItmnAlarme idAlarme;
 	

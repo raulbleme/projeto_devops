@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="itmn_alarme")
 public class ItmnAlarme {
@@ -23,6 +25,7 @@ public class ItmnAlarme {
 	@Column(name="nome", length=100)
 	private String nome;
 	
+	@JsonIgnoreProperties("evento")
 	@OneToMany(mappedBy="idAlarme", cascade=CascadeType.ALL)
 	private List<ItmnEvento> evento;
 	
